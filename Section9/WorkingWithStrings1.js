@@ -23,7 +23,7 @@ console.log(airline.slice(4, 7)); //Air
 console.log(airline.slice(0, airline.indexOf(" "))); //TAP
 console.log(airline.slice(airline.lastIndexOf(" "))); // Portugal
 
-//To extract ast character of String we use -1
+// To extract last character of String we use -1
 console.log(airline.slice(-2)); //al
 
 //Example

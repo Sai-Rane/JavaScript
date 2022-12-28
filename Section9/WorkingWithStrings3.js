@@ -1,8 +1,8 @@
 //Split function - Allows us to split a String into multiple parts
 
-console.log("a+very+nice+string".split("+")); //(4) ['a', 'very', 'nice', 'string']
+console.log("a+very+nice+string".split("+")); //(4) ['a', 'very', 'nice', 'string']  after split the result is in array
 
-const [firstName, lastName] = "Jonas Martin".split(" ");
+const [firstName, lastName] = "Jonas Martin".split(" "); //Destructuring
 console.log(firstName, lastName);
 
 //join
