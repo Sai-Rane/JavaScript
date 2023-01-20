@@ -19,11 +19,11 @@ console.log(b);
 
 //With the help of Destructing we can declare all the variables at the same time
 const [x, y, z] = arr;
-console.log("Destructuring Array", x, y, z);
+console.log("Destructuring Array", x, y, z); //1 2 3
 
 const [first, second] = restaurant.categories;
-console.log("Categories destructuring:", first, second);
+console.log("Categories destructuring:", first, second); //Italian Pizzeria
 
 //this will skip the second value in the categories array
 const [pizza, , pizza1] = restaurant.categories;
-console.log("Categories destructuring:", pizza, pizza1);
+console.log("Categories destructuring:", pizza, pizza1); //Italian Vegetarian

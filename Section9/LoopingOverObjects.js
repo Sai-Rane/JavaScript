@@ -27,15 +27,16 @@ const restaurant = {
 
 //Looping over property names(keys)
 const properties = Object.keys(restaurant.openingHours);
-console.log(properties);
+console.log(properties); //(3) ['thu', 'fri', 'sat']
 // console.log(`We are open on ${properties.length} days`);
 let openStr = `We are open on ${properties.length} days `;
+console.log(openStr); //We are open on 3 days
 
 for (const day of properties) {
   // console.log(day);
-  openStr += `${day},`;
+  openStr += `${day} `;
 }
-console.log(openStr);
+console.log(openStr); //We are open on 3 days thu fri sat
 
 //Looping over Property values
 const values = Object.values(restaurant.openingHours);

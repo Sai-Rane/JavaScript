@@ -5,8 +5,8 @@ const restaurant = {
 };
 
 const guests = restaurant.numGuests || 10;
-console.log(guests); //5
+console.log(guests); //10
 
 //Nullish: Nullish values are undefined and null.It does not include 0 or a ""
 const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+console.log(guestCorrect); //10

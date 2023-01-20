@@ -17,6 +17,7 @@ console.log(3 || "Jonas"); //output is 3
 console.log("" || "Jonas"); //Jonas
 console.log(undefined || null); //null
 console.log(true || 0); //true
+console.log(null || 0); //0
 console.log(undefined || null || 0 || "Jonas" || "Martin"); //Jonas
 
 // const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
