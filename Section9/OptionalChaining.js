@@ -63,3 +63,30 @@ console.log(users[0]?.name ?? "user array empty"); //Jonas
 
 // const nameBar = myMap.get("bar")?.name;
 // console.log(nameBar);
+
+const user = {
+  name: "John",
+  age: 21,
+  address: {
+    street: "Main street",
+    city: "NY",
+    state: "AV",
+    zip: 100,
+  },
+};
+// console.log("user.address.color.stay", user.address.color.stay); //This will give you error
+console.log("user.address.color.stay", user.address?.color?.stay); //This will give you undefined
+console.log("user.address.city is", user.address?.city); //NY
+// console.log("user.address.city is", user.addresss.city); //This will give you error. to avoid this error use Optional chaining as shown below
+console.log("user.address.city is", user.addresss?.city); //undefined
+
+const arr = [
+  {
+    name: "John",
+    age: 30,
+  },
+  { name: "Jane", age: 30 },
+  { name: "Bob", age: 30 },
+];
+console.log(arr[0].name); //John
+console.log(arr[3]?.name); //undefined

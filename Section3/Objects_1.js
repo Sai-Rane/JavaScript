@@ -26,7 +26,7 @@ console.log(jonas["last" + nameKey]);
 const intrestedIn = prompt(
   "What do you want to know about Jonas?Choose between firstName,lastName,age,job and friends"
 );
-// console.log(jonas.intrestedIn); This will give error(It will give you an undefined value) because jonas does not have any property as intrestedIn
+// console.log(jonas.intrestedIn); This will give error(It will give you an undefined value) because jonas object does not have any property as intrestedIn
 console.log(jonas[intrestedIn]);
 
 if (jonas[intrestedIn]) {
