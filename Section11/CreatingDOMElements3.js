@@ -65,13 +65,13 @@ const displayMovements = function (movements) {
   movements.forEach(function (ele, index) {
     const type = ele > 0 ? "deposit" : "withdrawal";
     const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
+            <div class="movements__row">
+              <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-          <div class="movements__value">${ele}</div>
-        </div>
-        `;
+              <div class="movements__value">${ele}</div>
+            </div>
+            `;
 
     //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -80,4 +80,54 @@ const displayMovements = function (movements) {
 displayMovements(account1.movements);
 // console.log("containerMovements.innerHTML", containerMovements.innerHTML);
 
+//Function to display balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, ele) => acc + ele);
+  labelBalance.textContent = balance;
+};
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+calcDisplayBalance(account1.movements);
+
+//Lets now calculate the maximum value of the movements array
+const max = movements.reduce((acc, ele) => {
+  if (acc > ele) {
+    return acc;
+  } else {
+    return ele;
+  }
+}, movements[0]);
+console.log("max", max);
+
+const euroToUsd = 1.1;
+
+//Converting all of the deposit amount to US Dollars
+const totalDepositInUSDollar = movements
+  .filter((ele) => ele > 0) //this will give you all the positive numbers..result of filter is an array.Now on that array we will perform map
+  .map((ele) => ele * euroToUsd) //this line will convert all the filter array elements to US Dollars
+  .reduce((acc, ele) => acc + ele, 0);
+
+console.log("totalDepositInUSDollar", totalDepositInUSDollar);
+
+//Writing function for displaying the total income,outcome and Intrest
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter((ele) => ele > 0)
+    .reduce((acc, ele) => acc + ele, 0);
+  console.log("incomes", incomes);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter((ele) => ele < 0)
+    .reduce((acc, ele) => acc + ele);
+  console.log("out", out);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter((ele) => ele > 0)
+    .map((ele) => (ele * 1.2) / 100)
+    .reduce((acc, ele) => acc + ele, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);

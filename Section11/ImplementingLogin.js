@@ -59,25 +59,62 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
+// LECTURES
 
-const displayMovements = function (movements) {
-  containerMovements.innerHTML = "";
-  movements.forEach(function (ele, index) {
-    const type = ele > 0 ? "deposit" : "withdrawal";
-    const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
-      index + 1
-    } ${type}</div>
-          <div class="movements__value">${ele}</div>
-        </div>
-        `;
-
-    //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
-    containerMovements.insertAdjacentHTML("afterbegin", html);
-  });
-};
-displayMovements(account1.movements);
-// console.log("containerMovements.innerHTML", containerMovements.innerHTML);
+const currencies = new Map([
+  ["USD", "United States dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound sterling"],
+]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const username = user
+//   .toLowerCase()
+//   .split(" ")
+//   .map(function (name) {
+//     return name[0];
+//   })
+//.join(""); //split returns a array
+//console.log("username", username); // stw
+
+const createUsernames = function (acc) {
+  //forEach return undefined
+  return acc.map(function (ele) {
+    return ele.owner
+      .toLowerCase()
+      .split(" ")
+      .map((ele) => ele[0])
+      .join("");
+  });
+};
+const userName = createUsernames(accounts);
+console.log("userName", userName);
+
+//Event Handler
+let currentAccount;
+
+btnLogin.addEventListener("click", function (e) {
+  //Prevent form from Submitting
+  e.preventDefault();
+  console.log("click");
+  currentAccount = accounts.find(
+    (ele) => ele.owner === inputLoginUsername.value
+  );
+  console.log("currentAccount", currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //Display UI and Welcome message
+    console.log("entered");
+    labelWelcome.textContent = `Welcome back ${
+      currentAccount.owner.split(" ")[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    //Display movements
+
+    //Display balance
+
+    //Display summary
+  }
+});

@@ -18,11 +18,11 @@ const euroToUsd = 1.1;
 const movementsUSD = movements.map((e) => e * euroToUsd);
 console.log(movementsUSD);
 
-const movementsDescription = movements.map((mov, i, arr) => {
+const movementsDescription = movements.map((mov, index, arr) => {
   if (mov > 0) {
-    return `Movement ${i + 1}: You deposited ${mov}`;
+    return `Movement ${index + 1}: You deposited ${mov}`;
   } else {
-    return `Movement ${i + 1}: You withdraw ${mov}`;
+    return `Movement ${index + 1}: You withdraw ${mov}`;
   }
 });
 console.log("movementsDescription", movementsDescription);

@@ -65,13 +65,13 @@ const displayMovements = function (movements) {
   movements.forEach(function (ele, index) {
     const type = ele > 0 ? "deposit" : "withdrawal";
     const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
+          <div class="movements__row">
+            <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-          <div class="movements__value">${ele}</div>
-        </div>
-        `;
+            <div class="movements__value">${ele}</div>
+          </div>
+          `;
 
     //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -80,4 +80,21 @@ const displayMovements = function (movements) {
 displayMovements(account1.movements);
 // console.log("containerMovements.innerHTML", containerMovements.innerHTML);
 
+//Function to display balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, ele) => acc + ele);
+  labelBalance.textContent = balance;
+};
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+calcDisplayBalance(account1.movements);
+
+//Lets now calculate the maximum value of the movements array
+const max = movements.reduce((acc, ele) => {
+  if (acc > ele) {
+    return acc;
+  } else {
+    return ele;
+  }
+}, movements[0]);
+console.log("max", max);
