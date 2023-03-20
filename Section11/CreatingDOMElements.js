@@ -1,5 +1,6 @@
 // BANKIST APP
 
+//To make this file run in the browser comment opacity: 0; in the style.css file
 // Data
 const account1 = {
   owner: "Jonas Schmedtmann",

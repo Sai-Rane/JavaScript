@@ -96,22 +96,23 @@ const displayMovements = function (movements) {
   movements.forEach(function (ele, index) {
     const type = ele > 0 ? "deposit" : "withdrawal";
     const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
+          <div class="movements__row">
+            <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-          <div class="movements__value">${ele}</div>
-        </div>
-        `;
+            <div class="movements__value">${ele}€</div>
+          </div>
+          `;
 
     //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, ele) => acc + ele);
-  labelBalance.textContent = `${balance} €`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, ele) => acc + ele);
+  //Creating a new property
+  labelBalance.textContent = `${acc.balance} €`;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -134,6 +135,17 @@ const calcDisplaySummary = function (acc) {
   labelSumInterest.textContent = `${interest}€`;
 };
 
+const updateUI = function (acc) {
+  //Display movements
+  displayMovements(acc.movements);
+
+  //Display balance
+  calcDisplayBalance(acc);
+
+  //Display summary
+  calcDisplaySummary(acc);
+};
+
 //Event Handler
 let currentAccount;
 
@@ -154,18 +166,49 @@ btnLogin.addEventListener("click", function (e) {
     }`;
     containerApp.style.opacity = 100;
 
-    //Display movements
-    displayMovements(currentAccount.movements);
-    //Display balance
-    calcDisplayBalance(currentAccount.movements);
+    // //Display movements
+    // displayMovements(currentAccount.movements);
 
-    //Display summary
-    calcDisplaySummary(currentAccount);
+    // //Display balance
+    // calcDisplayBalance(currentAccount);
+
+    // //Display summary
+    // calcDisplaySummary(currentAccount);
 
     //Clear Input fields after Login
     inputLoginUsername.value = inputLoginPin.value = "";
 
     //The blur method allows the field to loose its focus
     inputLoginPin.blur();
+
+    //Update UI
+    updateUI(currentAccount);
+  }
+});
+
+//Implementing Transfers
+
+btnTransfer.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("click");
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    (ele) => ele.owner === inputTransferTo.value
+  );
+  console.log(amount, receiverAcc);
+
+  inputTransferAmount.value = inputTransferTo.value = "";
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.owner !== currentAccount.owner
+  ) {
+    //Doing the Transfer
+    console.log("Transfer Valid");
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    //Update UI
+    updateUI(currentAccount);
   }
 });
