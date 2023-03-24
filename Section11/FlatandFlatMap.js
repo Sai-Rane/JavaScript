@@ -99,13 +99,13 @@ const displayMovements = function (movements) {
   movements.forEach(function (ele, index) {
     const type = ele > 0 ? "deposit" : "withdrawal";
     const html = `
-            <div class="movements__row">
-              <div class="movements__type movements__type--${type}">${
+                <div class="movements__row">
+                  <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-              <div class="movements__value">${ele}€</div>
-            </div>
-            `;
+                  <div class="movements__value">${ele}€</div>
+                </div>
+                `;
 
     //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -216,6 +216,24 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+//Loan feature
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("click");
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((ele) => ele >= amount * 0.1)
+  ) {
+    //Add movement
+    currentAccount.movements.push(amount);
+
+    //Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
+
 //Closing a Account
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
@@ -236,3 +254,61 @@ btnClose.addEventListener("click", function (e) {
   }
   inputCloseUsername.value = inputClosePin.value = "";
 });
+
+//Some and Every
+//Some method also has a callback
+
+// includes method checks equality
+console.log(movements.includes(-130)); //true.  includes is used to check whether a value is present in certain array
+
+//Some method checks condition
+const anyDeposits = movements.some((ele) => ele > 0);
+console.log(anyDeposits); //true
+
+//Lets implement our Laon feature of Bankist App
+//The bank has a rule that it only grants a loan if it has atleast one deposit with atleast 10% of the requested loan amount. Refer line 219 to see the function for loan
+
+//EVERY method
+//every method only returns true if all of the elements in the array satisfy the conditionthat we pass in(i.e If every element passes the test in the callback function only then the every method returns true)
+
+console.log(movements.every((ele) => ele > 0)); //false
+console.log(account4.movements.every((ele) => ele > 0)); //true
+
+//Separate callback
+const deposit = (mov) => mov > 0;
+console.log(movements.some(deposit)); //true
+console.log(movements.every(deposit)); //false
+console.log(movements.filter(deposit)); //[200, 450, 3000, 70, 1300]
+
+//flat and flatMap methods
+
+//flat method removes the nested array and gives a single array. The flat goes only one level deep
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat()); //[1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [[4, 5], 6], 7, 8];
+console.log(arrDeep.flat()); //[Array(2), 3, Array(2), 6, 7, 8]  This means that the flat method goes only one level deep
+console.log(arrDeep.flat(2)); //Here 2 is the level we are specifying. [1, 2, 3, 4, 5, 6, 7, 8]
+
+//Lets add all the movements array
+const accountMovements = accounts.map((ele) => ele.movements);
+console.log(accountMovements); //[Array(8), Array(8), Array(8), Array(5)]
+
+const allMovements = accountMovements.flat();
+console.log(allMovements); //[200, 450, -400, 3000, -650, -130, 70, 1300, 5000, 3400, -150, -790, -3210, -1000, 8500, -30, 200, -200, 340, -300, -20, 50, 400, -460, 430, 1000, 700, 50, 90]
+
+const overallBalance = allMovements.reduce((acc, ele) => ele + acc, 0);
+console.log(overallBalance); //17840
+
+//Writing the addition of all movements using chaining
+// const overallBalance = accounts
+//   .map((ele) => ele.movements)
+//   .flat()
+//   .reduce((acc, ele) => acc + ele, 0);
+// console.log(overallBalance);
+
+//flatMap method - It is acombination of flat and map method
+const overallBalance2 = accounts
+  .flatMap((ele) => ele.movements)
+  .reduce((acc, ele) => acc + ele, 0);
+console.log(overallBalance2); //17840

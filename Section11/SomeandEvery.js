@@ -99,13 +99,13 @@ const displayMovements = function (movements) {
   movements.forEach(function (ele, index) {
     const type = ele > 0 ? "deposit" : "withdrawal";
     const html = `
-            <div class="movements__row">
-              <div class="movements__type movements__type--${type}">${
+              <div class="movements__row">
+                <div class="movements__type movements__type--${type}">${
       index + 1
     } ${type}</div>
-              <div class="movements__value">${ele}€</div>
-            </div>
-            `;
+                <div class="movements__value">${ele}€</div>
+              </div>
+              `;
 
     //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -216,6 +216,24 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+//Loan feature
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("click");
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((ele) => ele >= amount * 0.1)
+  ) {
+    //Add movement
+    currentAccount.movements.push(amount);
+
+    //Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
+
 //Closing a Account
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
@@ -236,3 +254,29 @@ btnClose.addEventListener("click", function (e) {
   }
   inputCloseUsername.value = inputClosePin.value = "";
 });
+
+//Some and Every Methods
+//Both methods return a boolean value
+//some method also has a callback
+
+// includes method checks EQUALITY
+console.log(movements.includes(-130)); //true.  includes is used to check whether a value is present in certain array
+
+// some method checks CONDITION
+const anyDeposits = movements.some((ele) => ele > 0);
+console.log(anyDeposits); //true
+
+//Lets implement our Loan feature of Bankist App
+//The bank has a rule that it only grants a loan if it has atleast one deposit with atleast 10% of the requested loan amount. Refer line 219 to see the function for loan
+
+//EVERY method
+//every method only returns true if all of the elements in the array satisfy the conditionthat we pass in(i.e If every element passes the test in the callback function only then the every method returns true)
+
+console.log(movements.every((ele) => ele > 0)); //false
+console.log(account4.movements.every((ele) => ele > 0)); //true
+
+//Separate callback
+const deposit = (mov) => mov > 0;
+console.log(movements.some(deposit)); //true
+console.log(movements.every(deposit)); //false
+console.log(movements.filter(deposit)); //[200, 450, 3000, 70, 1300]
