@@ -318,7 +318,7 @@ const owners = ["Jonas", "Zach", "Adam", "Martha"];
 console.log(owners.sort()); //['Adam', 'Jonas', 'Martha', 'Zach']
 
 //Numbers
-console.log(movements);
+console.log(movements); //[200, 450, -400, 3000, -650, -130, 70, 1300]
 console.log(movements.sort()); //[-130, -400, -650, 1300, 200, 3000, 450, 70]
 
 //Ascending
