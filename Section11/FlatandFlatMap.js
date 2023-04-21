@@ -307,8 +307,14 @@ console.log(overallBalance); //17840
 //   .reduce((acc, ele) => acc + ele, 0);
 // console.log(overallBalance);
 
-//flatMap method - It is acombination of flat and map method
+//flatMap method - It is a combination of flat and map method
 const overallBalance2 = accounts
   .flatMap((ele) => ele.movements)
   .reduce((acc, ele) => acc + ele, 0);
 console.log(overallBalance2); //17840
+movements.map((e) => {
+  console.log(e);
+});
+movements.filter((e) => {
+  console.log(e > 2);
+});

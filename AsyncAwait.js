@@ -21,7 +21,7 @@ console.log("hello");
 // const b = bell();
 // console.log(b);
 
-//Async function - Write async keyword wuth the function
+//Async function - Write async keyword with the function
 async function bell() {
   console.log("Inside bell function");
   return "bell";
