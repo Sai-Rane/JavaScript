@@ -1,3 +1,5 @@
+console.log("hello");
+
 //SelectingCreatingandDeletingElements
 //If you want to apply CSS styles to entire page we always need to select the documentElement as shown below
 
@@ -45,3 +47,13 @@ document
     console.log("remove");
     message.remove();
   });
+
+//Styles
+//select the element then do .style and then the property name
+//example: message.style.background
+message.style.backgroundColor = "#37383d";
+message.style.width = "120%";
+
+//Computed Style is the real style which is appeared on the page
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);

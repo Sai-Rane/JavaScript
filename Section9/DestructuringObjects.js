@@ -28,12 +28,12 @@ const restaurant = {
 };
 
 //variables you are passing inside curly braces should match the properties(key) of the object
-const { starterMenu, openingHours } = restaurant;
+const { starterMenu, openingHours } = restaurant; //key
 console.log(starterMenu, openingHours);
 
 //If you want to change the property name of objects then we can write it as shown below
 const { name: restaurantName, categories: restaurantCategories } = restaurant;
-console.log(restaurantName, restaurantCategories);
+console.log(restaurantName, restaurantCategories); //Classico Italiano , (4) ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
 
 //lets set default values
 const { menu = [], starterMenu: starters = [] } = restaurant;
