@@ -26,13 +26,13 @@ const restaurant = {
 
 const arr = [7, 8, 9];
 const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(newBadArr);
+console.log(newBadArr); //(5) [1, 2, 7, 8, 9]
 
 //Using spread operator
 const newAr = [1, 2, arr];
-console.log(newAr);
+console.log(newAr); //(3) [1, 2, Array(3)]
 const newArr = [1, 2, ...arr];
-console.log("Using Spread Operator", newArr);
+console.log("Using Spread Operator", newArr); //(5) [1, 2, 7, 8, 9]
 console.log(...newArr);
 
 const newMenu = [...restaurant.mainMenu, "Sandwich"];
@@ -40,7 +40,7 @@ console.log(newMenu); //(4) ['Pizza', 'Pasta', 'Risotto', 'Sandwich']
 
 //Copy Array
 const mainMenuCopy = [restaurant.mainMenu];
-console.log(mainMenuCopy);
+console.log(mainMenuCopy); //(3) ['Pizza', 'Pasta', 'Risotto']
 
 //Join 2 arrays
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
