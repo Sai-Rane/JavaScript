@@ -27,7 +27,7 @@ const restaurant = {
 const arr = [7, 8, 9];
 const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(newBadArr); //(5) [1, 2, 7, 8, 9]
-
+console.log(arr);
 //Using spread operator
 const newAr = [1, 2, arr];
 console.log(newAr); //(3) [1, 2, Array(3)]
