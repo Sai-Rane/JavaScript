@@ -32,5 +32,21 @@ console.log(menu);
 // The for of loop also provides current element and index of the element
 //syntax for this is : for(const [i,ele] of menu.entries())
 for (const item of menu) console.log(item);
+// Focaccia
+// Bruschetta
+// Garlic Bread
+// Caprese Salad
+// Pizza
+// Pasta
+// Risotto
 
 for (const item of menu.entries()) console.log(item); //This gives you elements with index
+// [0, 'Focaccia']
+// [1, 'Bruschetta']
+// [2, 'Garlic Bread']
+// [3, 'Caprese Salad']
+// [4, 'Pizza']
+// [5, 'Pasta']
+// [6, 'Risotto']
+
+for (const a of restaurant.mainMenu) console.log(a);
