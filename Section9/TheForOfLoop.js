@@ -28,6 +28,9 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
 
 //The for of Loop
+//It is used to lop over the array
+// The for of loop also provides current element and index of the element
+//syntax for this is : for(const [i,ele] of menu.entries())
 for (const item of menu) console.log(item);
 
 for (const item of menu.entries()) console.log(item); //This gives you elements with index

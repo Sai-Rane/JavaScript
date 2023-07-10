@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.headMain{
+    /* color: blueviolet; */
+    padding: 5rem;
+    display: flex;
+    justify-content: space-evenly
+}
+.grid1{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.item1{
+background-color: aqua;
+display: flex;
+justify-content: center;
+}
+.item2{
+    
+}
+.item3{
+    
+}
+.item4{
+    background-color: aqua;
+display: flex;
+justify-content: center;
+}
+.btn{
+    border: none;
+    background: none;
+    font-size: 10rem;
+    cursor: pointer;
+    color: beige;
+}
+.btn:hover{
+    color: orange;
+}

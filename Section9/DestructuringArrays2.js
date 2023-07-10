@@ -2,7 +2,7 @@
 const nested = [1, 2, [3, 4, 5]];
 
 const [i, j, [k, l, m]] = nested;
-console.log(i, j, k, l, m);
+console.log(i, j, k, l, m); //1 2 3 4 5
 
 //lets set some default values
 const [p, q, r] = [1, 2];

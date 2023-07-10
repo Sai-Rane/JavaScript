@@ -1,5 +1,5 @@
-console.log("hello");
 //Looping through Arrays
+
 // const jonasArray = [
 //   "Jonas",
 //   "Peter",

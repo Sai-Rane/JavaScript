@@ -1,6 +1,6 @@
 //Sets and Maps are two more Data Structures that were introduced in ES6
 //Set - It is a Collection of unique Objects. It does not have Duplicates. Sets are also iterables
-//Iterable - Strings,Array,Sets,Maps etc are iterables
+//Iterable - Strings,Array,Sets,Maps etc are iterables. we can loop through them using loop
 const ordersSet = new Set([
   "Pasta",
   "Pizza",

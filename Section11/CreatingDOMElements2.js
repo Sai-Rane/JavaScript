@@ -1,0 +1,133 @@
+// BANKIST APP
+
+// Data
+const account1 = {
+  owner: "Jonas Schmedtmann",
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account2 = {
+  owner: "Jessica Davis",
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account3 = {
+  owner: "Steven Thomas Williams",
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account4 = {
+  owner: "Sarah Smith",
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4];
+
+// Elements
+const labelWelcome = document.querySelector(".welcome");
+const labelDate = document.querySelector(".date");
+const labelBalance = document.querySelector(".balance__value");
+const labelSumIn = document.querySelector(".summary__value--in");
+const labelSumOut = document.querySelector(".summary__value--out");
+const labelSumInterest = document.querySelector(".summary__value--interest");
+const labelTimer = document.querySelector(".timer");
+
+const containerApp = document.querySelector(".app");
+const containerMovements = document.querySelector(".movements");
+
+const btnLogin = document.querySelector(".login__btn");
+const btnTransfer = document.querySelector(".form__btn--transfer");
+const btnLoan = document.querySelector(".form__btn--loan");
+const btnClose = document.querySelector(".form__btn--close");
+const btnSort = document.querySelector(".btn--sort");
+
+const inputLoginUsername = document.querySelector(".login__input--user");
+const inputLoginPin = document.querySelector(".login__input--pin");
+const inputTransferTo = document.querySelector(".form__input--to");
+const inputTransferAmount = document.querySelector(".form__input--amount");
+const inputLoanAmount = document.querySelector(".form__input--loan-amount");
+const inputCloseUsername = document.querySelector(".form__input--user");
+const inputClosePin = document.querySelector(".form__input--pin");
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = "";
+  movements.forEach(function (ele, index) {
+    const type = ele > 0 ? "deposit" : "withdrawal";
+    const html = `
+            <div class="movements__row">
+              <div class="movements__type movements__type--${type}">${
+      index + 1
+    } ${type}</div>
+              <div class="movements__value">${ele}</div>
+            </div>
+            `;
+
+    //insertAdjacentHTML is a method which accepts 2 arguments. 1st argument is the position in which we want to attach the html and 2nd is the argument which contains the html
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+displayMovements(account1.movements);
+// console.log("containerMovements.innerHTML", containerMovements.innerHTML);
+
+//Function to display balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, ele) => acc + ele);
+  labelBalance.textContent = balance;
+};
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+calcDisplayBalance(account1.movements);
+
+//Lets now calculate the maximum value of the movements array
+const max = movements.reduce((acc, ele) => {
+  if (acc > ele) {
+    return acc;
+  } else {
+    return ele;
+  }
+}, movements[0]);
+console.log("max", max);
+
+const euroToUsd = 1.1;
+
+//Converting all of the deposit amount to US Dollars
+const totalDepositInUSDollar = movements
+  .filter((ele) => ele > 0) //this will give you all the positive numbers..result of filter is an array.Now on that array we will perform map
+  .map((ele) => ele * euroToUsd) //this line will convert all the filter array elements to US Dollars
+  .reduce((acc, ele) => acc + ele, 0);
+
+console.log("totalDepositInUSDollar", totalDepositInUSDollar);
+
+//Writing function for displaying the total income,outcome and Intrest
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter((ele) => ele > 0)
+    .reduce((acc, ele) => acc + ele, 0);
+  console.log("incomes", incomes);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = movements
+    .filter((ele) => ele < 0)
+    .reduce((acc, ele) => acc + ele);
+  console.log("out", out);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = movements
+    .filter((ele) => ele > 0)
+    .map((ele) => (ele * 1.2) / 100)
+    .reduce((acc, ele) => acc + ele, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+calcDisplaySummary(account1.movements);

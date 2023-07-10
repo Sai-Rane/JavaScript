@@ -23,17 +23,17 @@ const restaurant = {
   },
 
   orderDelivery: function (obj) {
-    console.log(obj);
+    console.log(obj); //{"time": "08:00","address": "T Road"}
   },
 };
 
 //variables you are passing inside curly braces should match the properties(key) of the object
-const { starterMenu, openingHours } = restaurant;
+const { starterMenu, openingHours } = restaurant; //key
 console.log(starterMenu, openingHours);
 
 //If you want to change the property name of objects then we can write it as shown below
 const { name: restaurantName, categories: restaurantCategories } = restaurant;
-console.log(restaurantName, restaurantCategories);
+console.log(restaurantName, restaurantCategories); //Classico Italiano , (4) ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']
 
 //lets set default values
 const { menu = [], starterMenu: starters = [] } = restaurant;
@@ -44,12 +44,12 @@ let a = 10;
 let b = 11;
 const obj = { a: 23, b: 7, c: 14 };
 ({ a, b } = obj);
-console.log(a, b);
+console.log(a, b); //23 7
 
 //lets now destructure nested objects
 const {
   fri: { open, close },
 } = openingHours;
-console.log("Nested Objects", open, close);
+console.log("Nested Objects", open, close); //11 23
 
 restaurant.orderDelivery({ time: "08:00", address: "T Road" });

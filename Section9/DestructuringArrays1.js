@@ -34,4 +34,4 @@ console.log(restaurant.order(1, 2));
 
 //lets now destructure it
 const [first, second] = restaurant.order(1, 2);
-console.log(first, second);
+console.log(first, second); //Bruschetta Risotto

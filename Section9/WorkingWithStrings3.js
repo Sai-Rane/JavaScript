@@ -1,8 +1,8 @@
 //Split function - Allows us to split a String into multiple parts
 
-console.log("a+very+nice+string".split("+")); //(4) ['a', 'very', 'nice', 'string']
+console.log("a+very+nice+string".split("+")); //(4) ['a', 'very', 'nice', 'string']  after split the result is an array
 
-const [firstName, lastName] = "Jonas Martin".split(" ");
+const [firstName, lastName] = "Jonas Martin".split(" "); //Destructuring
 console.log(firstName, lastName);
 
 //join
@@ -24,7 +24,7 @@ const capitalize = function (name) {
 capitalize("jessica ann smith davis");
 capitalize("jonas martin");
 
-//PAdding a String
+//Padding a String
 
 const message = "Go to gate 23!";
 console.log(message.length);
@@ -35,7 +35,7 @@ console.log("Jonas".padStart(10, "+")); //+++++Jonas
 console.log("Jonas".padStart(10, "+").padEnd(15, "+")); //+++++Jonas+++++
 
 const maskCreditCard = function (number) {
-  const str = number + ""; //Converting number to string
+  const str = number + ""; //Converting number to string. We are basically adding a string to number which will result in giving us a string
   const last = str.slice(-4);
   return last.padStart(str.length, "*");
 };

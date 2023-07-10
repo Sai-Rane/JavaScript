@@ -1,5 +1,3 @@
-console.log("hello");
-
 //Calculate the ages of the years given and store it in the ages Array
 const years = [1991, 2007, 1969, 2020];
 const ages = [];

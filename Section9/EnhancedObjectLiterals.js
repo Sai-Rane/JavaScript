@@ -28,3 +28,4 @@ const restaurant = {
     console.log(obj);
   },
 };
+console.log(restaurant);
