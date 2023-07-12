@@ -16,7 +16,7 @@ for (const a of movements) {
 }
 
 console.log("Using for each method");
-//for each method -- The for ecah method also requires a callback function
+//for each method -- The for each method also requires a callback function
 movements.forEach(function (a) {
   if (a > 0) {
     console.log(`You deposited ${a}`);

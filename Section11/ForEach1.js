@@ -18,3 +18,15 @@ console.log("For of loop");
 for (const [i, ele] of movements.entries()) {
   console.log(`${i}: ${ele}`);
 }
+for (const [i, ele] of movements) {
+  console.log(i, ele);
+}
+
+// 0: 200
+// 1: 450
+// 2: -400
+// 3: 3000
+// 4: -650
+// 5: -130
+// 6: 70
+// 7: 1300

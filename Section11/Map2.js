@@ -32,8 +32,8 @@ const account4 = {
 const accounts = [account1, account2, account3, account4];
 
 const user = "Steven Thomas Williams";
-//const username = user.toLowerCase().split(" "); //split returns a array
-//console.log("username", username);
+// const username = user.toLowerCase().split(" "); //split returns a array
+// console.log("username", username); //['steven', 'thomas', 'williams']
 
 // const username = user
 //   .toLowerCase()
