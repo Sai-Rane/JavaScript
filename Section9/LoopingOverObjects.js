@@ -35,6 +35,7 @@ console.log(openStr); //We are open on 3 days
 for (const day of properties) {
   // console.log(day);
   openStr += `${day} `;
+  // console.log("day", day);
 }
 console.log(openStr); //We are open on 3 days thu fri sat
 
