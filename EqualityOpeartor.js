@@ -2,10 +2,11 @@ console.log("Hello");
 // Equality Operator == v/s ===
 // === operator checks the type
 const age = "18";
+const ages = 18;
 if (age === "18") {
   console.log("Adult (strict)");
 }
-if (age == "18") {
+if (ages == "18") {
   console.log("Adult (loose)");
 }
 
