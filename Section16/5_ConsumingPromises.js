@@ -9,7 +9,7 @@ console.log("request", request);
 //     .then(function (response) {
 //       console.log("response from API call", response);
 //       //This is the response from API call
-//       //In the body we have the actual data.In order to read the data from body we need to call the JSON method on the response.JSON is a method available on all responses of the fetch method
+//       //In the body we have the actual data. In order to read the data from body we need to call the JSON method on the response. JSON is a method available on all responses of the fetch method
 //       //   body: ReadableStream
 //       //   bodyUsed: false
 //       //   headers: Headers {}
