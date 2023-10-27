@@ -21,6 +21,12 @@ if (navigator.geolocation)
   navigator.geolocation.getCurrentPosition(
     function (position) {
       console.log(position);
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+      console.log("latitude and longitude", latitude, longitude);
+      console.log(
+        `https://www.google.com/maps/place/Goregaon+Sports+Club/@${latitude},${longitude},15z/data=!4m6!3m5!1s0x3be7b72e4e215555:0xb0e590b959b55b44!8m2!3d19.1819719!4d72.8348733!16s%2Fg%2F11f4054qj7?entry=ttu`
+      );
     },
     function () {
       alert("Could not get your position");
