@@ -16,7 +16,7 @@ console.log(airline.lastIndexOf("r")); //10
 //You can also search a whole word
 console.log(airline.indexOf("Portugal")); //8
 
-//Slice method - It takes 2 parameters, first is starting index and second is ending
+//Slice method - It takes 2 parameters, first is starting index and second is ending. Slice method does not mutates the original array
 console.log(airline.slice(4)); //Air Portugal
 console.log(airline.slice(4, 7)); //Air
 

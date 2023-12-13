@@ -1,17 +1,17 @@
 console.log("jonas");
 let name = "jonas"; //declaring a variable and assigning a value
 console.log(name);
-console.log(typeof name);
+console.log(typeof name); //string
 
 let a = true;
 console.log(a);
-console.log(typeof a);
+console.log(typeof a); //boolean
 
 a = "Hello"; //Reassigning is allowed in let keyword
 console.log(typeof a);
 
 let year;
-console.log(typeof year);
+console.log(typeof year); //boolean
 
 // Reassigning in const keyword is not allowed
 const birthYear = 1990;

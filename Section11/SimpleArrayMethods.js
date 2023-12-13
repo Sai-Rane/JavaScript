@@ -20,6 +20,11 @@ console.log("SPLICE");
 console.log(arr.splice(2)); //c,d,e
 console.log(arr); //a,b
 
+// let arr = ["a", "b", "c", "d", "e"];
+// console.log(arr);
+// console.log(arr.splice(2, 1));
+// console.log(arr);
+
 //REVERSE
 //The reverse method actually mutates the original array
 const arr2 = ["j", "i", "h", "g", "f"];

@@ -35,12 +35,13 @@ console.log(openStr); //We are open on 3 days
 for (const day of properties) {
   // console.log(day);
   openStr += `${day} `;
+  // console.log("day", day);
 }
 console.log(openStr); //We are open on 3 days thu fri sat
 
 //Looping over Property values
 const values = Object.values(restaurant.openingHours);
-console.log(values);
+console.log(values); // [{open: 12, close: 22},{open: 11, close: 23},{open: 0, close: 24}]
 
 //To loop over the Entire Object we need Entries. Entries is basically keys and values together
 
