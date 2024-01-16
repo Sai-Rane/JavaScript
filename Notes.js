@@ -67,3 +67,7 @@
 // 	The server receives the request and processes it internally.
 // 	The server returns a response to the client. The response contains information that tells the client whether the request was successful. The response also includes any information that the client requested.
 // 	The REST API request and response details vary slightly depending on how the API developers design the API.
+
+// Different browsers(such as Firefox, Chrome, Safari etc) have different JS engines to run your code on Browser.
+// Chrome uses V8 engine.
+// Internet Explorer was using Chakra
