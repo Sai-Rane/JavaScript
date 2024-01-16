@@ -1,0 +1,4 @@
+Suppose you want to search something on google.. for that you need the IP address of the thing you want to search on google.This all happens in the backend.You only specify the domain name and you get the information you need.
+
+Suppose we have multiple Servers.Each server will have a different IP address.
+Each server will have multiple services.(ex:http,ftp etc) and each service will be on different port number
