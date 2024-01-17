@@ -2,3 +2,6 @@ Suppose you want to search something on google.. for that you need the IP addres
 
 Suppose we have multiple Servers.Each server will have a different IP address.
 Each server will have multiple services.(ex:http,ftp etc) and each service will be on different port number
+
+Modules
+Small encapsulated units which you can share with everyone
