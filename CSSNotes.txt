@@ -1,0 +1,58 @@
+position is static by default
+position can be fixed,static,absolute,relative,sticky
+ex:
+<h1 class='title'>Welcome back </h1>
+
+.title{
+    background:red;
+    color:white;
+    position:static;
+    top:100px; //this will not work since position is static
+}
+
+if you cahnge position from static to relative the position of h1 changes from top and shifts from top 
+position relative allows us to use top, bottom, left and roght values whereas in static it is not possible
+.title{
+    position:relative;
+    top:100px;
+}
+
+.parent{
+    border:5px solid red;
+    width:500px;
+    height:500px;
+}
+
+.child{
+    background:red;
+    width:100px;
+    height:100px
+}
+
+position fixed, actually fixes the position of the element so that it will remain stick to that position no matter where we scroll on the document
+ex:
+html{
+    height:5000px
+}
+.child{
+    background:red;
+    width:100%;
+    height:100px;
+    position:fixed;
+}
+
+--------------------------
+https://www.youtube.com/watch?v=GteJWhCikCk
+When your items are getting compressed you can use flex-wrap. The items will wrap your items go out of space.
+Default value of flex-wrap is nowrap. you acn also give wrap-reverse.
+
+display:flex;
+flex-wrap:wrap;
+
+flex-wrap can be used with align-items:center,align-items:start as shown below
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+
+align-self:center;
+https://www.youtube.com/watch?v=lkIFF4maKMU
