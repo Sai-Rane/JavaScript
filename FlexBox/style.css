@@ -9,16 +9,29 @@
     column-gap: 10px;
     align-items: center;
     justify-content: center;
-    /* align-content: start;  align-content property is used when you want to reduce gap between 2 rows when your container size shrinkss */
+
+    /* align-content: start;  align-content property is used when you want to reduce/increase gap between 2 rows when your container size shrinkss */
+    
     /* flex-flow: wrap row; flex-flow is a short hand of flex-direction and flex-wrap */
 }
 .box{
     /* background-color: aqua; */
     border:2px solid red;
-    /* width: 100px; */
+    width: 100px;
 }
 #box1{
-    order:1
+    order:1;  /* Changes the order of the element*/
+    flex-grow:1 ; /* flex-grow the reamining space of screen. flex-grow has a default value as 0 */
+    /* flex-shrink has a default value of 1*/
+    flex-shrink :2
+}
+#box3{
+    flex-grow:3  /* Takes the reamining space of screen */
+}
+
+/* flex-basis defines the initial width wrt main axis <----> */
+#box-1{
+    flex-basis:200px
 }
 *{
     box-sizing: border-box;
