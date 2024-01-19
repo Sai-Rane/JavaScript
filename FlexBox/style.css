@@ -8,13 +8,14 @@
     row-gap: 10px;
     column-gap: 10px;
     align-items: center;
-    /* align-content: end; */
+    justify-content: center;
+    /* align-content: start;  align-content property is used when you want to reduce gap between 2 rows when your container size shrinkss */
     /* flex-flow: wrap row; flex-flow is a short hand of flex-direction and flex-wrap */
 }
 .box{
     /* background-color: aqua; */
     border:2px solid red;
-    width: 100px;
+    /* width: 100px; */
 }
 #box1{
     order:1
