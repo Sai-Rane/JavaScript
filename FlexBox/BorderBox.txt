@@ -1,0 +1,10 @@
+padding ka kaam hota hai content ko border se alag karna
+margin ka kaam hota h ek element ko dusre element se alag karna
+
+below shown is known as universal selector. har element mai margin 0px
+*{
+    margin:0;
+}
+
+box-sizing default value is content-box. content-box tells us that jo bhi content hai uske hisab se height and width define karo.
+if you want to change it according to border use box-sizing as border-box
