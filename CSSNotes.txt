@@ -44,7 +44,7 @@ html{
 --------------------------
 https://www.youtube.com/watch?v=GteJWhCikCk
 When your items are getting compressed you can use flex-wrap. The items will wrap your items go out of space.
-Default value of flex-wrap is nowrap. you acn also give wrap-reverse.
+Default value of flex-wrap is nowrap. you can also give wrap-reverse.
 
 display:flex;
 flex-wrap:wrap;
