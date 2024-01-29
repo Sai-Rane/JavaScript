@@ -2,7 +2,7 @@
 //different methods of writing function are shown below
 
 //method 1
-https: function name() {
+function name() {
   console.log("hello");
 }
 name();
