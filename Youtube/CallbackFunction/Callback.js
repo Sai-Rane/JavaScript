@@ -28,6 +28,8 @@ tam();
 
 // Passing one function as parameter to another function
 const calculate = (a, b, operation) => {
+  operation.name = "dffdfd";
+  console.log("operation.name", operation.name);
   return operation(a, b);
 };
 
@@ -49,5 +51,5 @@ function multiply(a, b) {
   return a * b;
 }
 
-const mulResult = calculate(2, 3, multiply);
-console.log("mulResult", mulResult);
+const mulResult = calculate(2, 3, multiply); //arg
+console.log("mulResult", mulResult, multiply.name);
