@@ -15,7 +15,31 @@ Microtasks Queue- A special place for all the callbacks coming from Promises.
 Callbacks from all promises are stored in microtasks queue and send one by one into the Call Stack for Execution.
 Microtasks Queue has highest priority than the Callback Queue
 
+--------------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=ByhtOgF6uYM
+
+Execution Context
+    Global Execution Context
+    Function Execution Context
+
+JS code executes in 2 phases
+1st phase is the memory allocation phase where memory is allocated to all variables,functions
+2nd phase is the Execution phase where operations are performed
+
+Jitni baar bhi functions execute hote hai utni baar ek naya Execution Context ready hota hai
+
+
 
 
 
 */
+let val1 = 10;
+let val2 = 5;
+function addNum(a, b) {
+  let total = a + b;
+  return total;
+}
+
+let result1 = addNum(val1, val2);
+let result2 = addNum(10, 2);
