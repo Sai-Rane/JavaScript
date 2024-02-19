@@ -23,3 +23,44 @@ console.log("Test end");
 //   console.log(res);
 // });
 // console.log("Test end");
+
+// ------------------------------------------------------------
+// Deep Copy and Shallow Copy
+// Deep copy means everything will be copied
+const person = {
+  name: "John",
+  age: 30,
+  address: {
+    city: "Delhi",
+    country: "India",
+  },
+};
+
+// Making shallow copy using Object.assign method
+const shallowCopy = Object.assign({}, person);
+shallowCopy.address.city = "Mumbai";
+shallowCopy.age = 10;
+console.log(person.address.city); //Mumbai
+console.log(shallowCopy.address.city); //Mumbai
+console.log(person.age); //30
+console.log(shallowCopy.age); //10
+
+// Deep Copy using JSON.parse and JSON.stringify
+const deepCopy = JSON.parse(JSON.stringify(person));
+deepCopy.address.city = "Pune";
+console.log("deepCopy", person.address.city); //Mumbai
+console.log("deepCopy", deepCopy.address.city); //Pune
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [...arr1];
+arr2[2] = 100;
+
+console.log(arr1); //[1, 2, 3, 4, 5]
+console.log(arr2); //[1, 2, 100, 4, 5]
+
+const arr3 = [1, 2, 3, 4, 5];
+const arr4 = arr3;
+arr4[2] = 100;
+
+console.log(arr3); //[1, 2, 100, 4, 5]
+console.log(arr4); //[1, 2, 100, 4, 5]
