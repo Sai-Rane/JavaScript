@@ -1,4 +1,5 @@
 //Now let's see how async await is different from normal way(which is using .then method) of handling promises
+// https://www.youtube.com/watch?v=6nv3qy3oNkc
 
 const p = new Promise((resolve, reject) => {
   setTimeout(() => {
