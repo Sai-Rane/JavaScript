@@ -23,8 +23,12 @@ Execution Context
     Global Execution Context
     Function Execution Context
 
+Call Stack
+Memory where kaise uske andar functions jayenge execute honge
+Call Stack works in LIFO manner
+
 JS code executes in 2 phases
-1st phase is the memory allocation phase where memory is allocated to all variables,functions
+1st phase is the memory allocation(creation) phase where memory is allocated to all variables,functions
 2nd phase is the Execution phase where operations are performed
 
 Jitni baar bhi functions execute hote hai utni baar ek naya Execution Context ready hota hai
@@ -34,7 +38,8 @@ Jitni baar bhi functions execute hote hai utni baar ek naya Execution Context re
 
 
 */
-let val1 = 10;
+
+var val1 = 10;
 let val2 = 5;
 function addNum(a, b) {
   let total = a + b;
@@ -43,3 +48,4 @@ function addNum(a, b) {
 
 let result1 = addNum(val1, val2);
 let result2 = addNum(10, 2);
+console.log(result1);

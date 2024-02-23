@@ -64,3 +64,27 @@ arr4[2] = 100;
 
 console.log(arr3); //[1, 2, 100, 4, 5]
 console.log(arr4); //[1, 2, 100, 4, 5]
+
+// ---------------------------------
+
+let obj1 = {
+  name: "john",
+  gender: "male",
+  isLogged: true,
+};
+
+let cloneObj = JSON.parse(JSON.stringify(obj1));
+console.log(obj1, cloneObj);
+
+// ---------------------------------
+
+const obj = {
+  appointment: new Date("2024-01-01"),
+  count: new Map([
+    ["apple", 2],
+    ["banana", 3],
+  ]),
+};
+
+const objClone = JSON.parse(JSON.stringify(obj));
+console.log(obj, objClone);
