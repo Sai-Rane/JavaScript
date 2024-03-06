@@ -23,3 +23,7 @@ console.log(text);
 
 //Comparison Operators
 console.log(sum > age); //Result of comparison operator is boolean value
+
+//strict check i.e ===
+// not only check values but also checks their datatype
+console.log("2" === 2); //false

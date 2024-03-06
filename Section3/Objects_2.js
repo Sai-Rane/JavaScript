@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=9ksqBa8_txM
+
 //Objects Methods
 console.log("hello");
 
@@ -15,7 +17,8 @@ console.log("hello");
 // console.log(jonas);
 // console.log(jonas.calculateAge(jonas.birthYear));
 
-//the this keyword-example is shown below
+// the this keyword-example is shown below
+// this refers to current context
 
 // const jonas = {
 //   firstName: "Jonas",
@@ -54,3 +57,15 @@ const jonas = {
   },
 };
 console.log(jonas.getSummary());
+
+console.log("this", this);
+
+// You cannot acccess this keyword inside function, when you are running your JS code using node environment
+// example is shown below
+function chai() {
+  console.log(this);
+}
+chai();
+
+console.log("2" > 1); //true
+console.log(null > 0); //false
