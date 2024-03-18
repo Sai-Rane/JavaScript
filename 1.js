@@ -25,3 +25,6 @@ const age = "";
 //var keyword
 var carName = "honda";
 carName = "audi"; //Redeclaration is allowed in var
+
+console.log(x);
+var x = 10;
